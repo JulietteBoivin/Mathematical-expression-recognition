@@ -7,61 +7,63 @@ def formatting(mystring):
     return re.split("([+-/*{}_= ()])", mystr.replace(" ", ""))
 
   #split on spaces
-  b = mystring.split(' ')
+  string_space = mystring.split(' ')
+  
+  #split on ([+-/*{}_= ()])
+  string_charac = []
+  for i in range(len(string_space)):
+    string_charac.append(mysplit(string_space[i]))
 
-  B = []
-  for i in range(len(b)):
-    B.append(mysplit(b[i]))
+  new_string = []
+  for i in string_charac:
+    new_string = new_string + i
+  
+  #Remove '' in the new_string list
+  new_string = [i for i in new_string if i != ''] 
 
-  BB = []
-  for i in B:
-    BB = BB + i
-
-  BB = [i for i in BB if i != ''] 
-
-  return BB
+  return new_string
   
   
-  def encode_words_labels(l):
-    """
-    Encodes the Ground Truth Labels to a list of Values like eg.HAT returns [17,10,29]
-    """
+  def encode_words_labels(splitted_list, grammar):
+    #Encodes the Ground Truth Labels to a list of Values
     label_lst=[]
-    for i in range(len(l)):
-      #print(l[i]) 
-      #print(char)
-      if l[i] not in full_grammar:
-         
-         full_grammar.append(l[i])
-      label_lst.append(full_grammar.index(l[i])) # keeping 0 for blank and for padding labels
+    
+    for i in range(len(splitted_list)):
+      
+      if splitted_list[i] not in grammar:
+         grammar.append(splitted_list[i])
+          
+      label_lst.append(grammar.index(splitted_list[i])) # keeping 0 for blank and for padding labels
+      
     return label_lst
     
     
-def embedding(Y_train): 
-  Y_train_encd= [] # list to keep track of encoded data 
-  z=0              #variable to keep track of max length 
-  for i in range(len(Y_train)):
+def embedding(Y, grammar): 
+  Y_encd= [] # list to keep track of encoded data 
+  max_length=0              #variable to keep track of max length 
+  for i in range(len(Y)):
     
-    yy=formatting(Y_train[i])  #format the data via character splitting 
-    ye=encode_words_labels(yy) #encode the data 
-    if len(ye)> z:   #comparing lengths, to use the max for padding 
-      z=len(ye)
+    Y_format=formatting(Y[i])  #format the data via character splitting 
+    Y_e=encode_words_labels(Y_format, grammar) #encode the data 
+    if len(Y_e)> max_length:   #comparing lengths, to use the max for padding 
+      max_length=len(Y_e)
 
-    Y_train_encd.append(ye) #adding encoded y to the list 
-  return Y_train_encd,z
+    Y_encd.append(Y_e) #adding encoded y to the list 
+  return Y_encd, max_length
     
-def padding(Y,z):
-    y_encoded,max_length=embedding(Y) #recuperating encoded data and max length 
+  
+def padding(Y,padding_length):
+  
+    y_encoded,max_length = embedding(Y) #recuperating encoded data and max length 
     
-    YYe=[] # list of padded and encoded data 
-
+    Y_padded=[] # list of padded and encoded data 
     for i in range(len(y_encoded)):
-        if len(y_encoded[i])< z:
+        if len(y_encoded[i])< padding_length:
             m=len(y_encoded[i])
-            y_encoded[i].extend([0]* (z-m)) # adding zeros if the length is smaller than the max_length found
-        YYe.append(y_encoded[i])
+            y_encoded[i].extend([0]* (padding_length - m)) # adding zeros if the length is smaller than the max_length found
+        Y_padded.append(y_encoded[i])
      
-    return YYe 
+    return Y_padded
     
     
     
