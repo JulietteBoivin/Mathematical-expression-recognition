@@ -66,7 +66,7 @@ RemoveBlankElements(X_train, y_train)
 RemoveBlankElements(X_valid, y_valid)
 RemoveBlankElements(X_test, y_test)
    
-def GetDataset():
+def GetDataLists():
   return [(X_train, y_train), (X_valid, y_valid), (X_test, y_test)]
    
    
