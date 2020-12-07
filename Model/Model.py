@@ -43,3 +43,4 @@ def OurModel():
   model.compile(loss='SparseCategoricalCrossentropy', optimizer='adam', metrics=['accuracy'])
   
   return model
+ 
