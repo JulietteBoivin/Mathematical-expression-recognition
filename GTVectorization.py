@@ -52,9 +52,9 @@ def embedding(Y, grammar):
   return Y_encd, max_length
     
   
-def padding(Y,padding_length):
+def padding(Y,padding_length, grammar):
   
-    y_encoded,max_length = embedding(Y) #recuperating encoded data and max length 
+    y_encoded,max_length = embedding(Y, grammar) #recuperating encoded data and max length 
     
     Y_padded=[] # list of padded and encoded data 
     for i in range(len(y_encoded)):
