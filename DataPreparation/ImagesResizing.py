@@ -7,7 +7,7 @@ pathTrainR =  '/content/drive/My Drive/Train/ORNELA_train_img_resized'
 
 pathV = '/content/drive/My Drive/Train/valid_img'
 pathVR =  '/content/drive/My Drive/Train/valid_img_resized'
-
+ 
 pathTest = '/content/drive/My Drive/Test/CROHME_test_img'
 pathTestR =  '/content/drive/My Drive/Test/test_img_resized'
 
