@@ -1,6 +1,6 @@
 from os import walk
 import matplotlib.image as mpimg
-
+ 
 repImgTrain = '/content/drive/My Drive/Train/ORNELA_train_img_resized'
 repImgValid = '/content/drive/My Drive/Train/valid_img_resized'
 repImgTest = '/content/drive/My Drive/Test/ORNELA_test_img_resized'
