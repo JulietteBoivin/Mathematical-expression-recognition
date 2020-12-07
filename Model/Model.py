@@ -2,7 +2,7 @@ import keras
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten,LSTM, Lambda, Attention, TimeDistributed
 from keras.layers import Conv2D, MaxPooling2D, Conv2DTranspose, BatchNormalization
-from Model import attention
+from AttentionLayer import attention
 
 def OurModel():
   model = Sequential()
