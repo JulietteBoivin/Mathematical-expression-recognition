@@ -6,7 +6,7 @@ from skimage.morphology import thin
 import matplotlib.pyplot as plt
 import xml.etree.ElementTree as ET
 from io import StringIO
-
+ 
 def get_traces_data(inkml_file_abs_path, xmlns='{http://www.w3.org/2003/InkML}'):
 
     	traces_data = []
