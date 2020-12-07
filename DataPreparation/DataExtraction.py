@@ -32,7 +32,7 @@ for filename in listeFichiers:
   file = Rep + '/' + filename
   tree = ET.parse(file)
   root = tree.getroot()
-  for child in root:
+  for child in root: 
     if 'truth' in child.attrib.values():
       os.chdir(RepGT)
       with open(filename.split('.')[0] + '.txt', 'a') as fichier:
