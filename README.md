@@ -31,7 +31,7 @@ Contains a function developed by us to recuperate the data as lists, as well as 
 
 3.a.2. GTVectorization.py
 
-Contains functions developped by us in order to split the label data into their subelements. It also includes functions responsible for padding, encoding and embedding. Vectorization is based on the element’s position in the grammar 
+Contains functions developed by us in order to split the label data into their sub-elements. It also includes functions responsible for padding, encoding and embedding. Vectorization is based on the element’s position in the grammar 
 (ex. Letter a is represented by 0 since it’s the first element of the grammar).
 
 3.a.3. inkml2img.py
@@ -56,13 +56,10 @@ File containing the functions responsible for global distortion, border removal 
 
 3.d.Contributions 
 
--Attention.py : 
-
 - https://learnandshare645.blogspot.com/2016/06/feeding-your-own-data-set-into-cnn.html
  
 - https://github.com/ducanh841988/Handwritten-Math-Recognition
 (Original Authors, model implemented in Lua programming language. )
 
 - We also read a plethora of articles and blogs, most of them being from Medium, Towards Data Science and Keras forums and documentation.
-
 
