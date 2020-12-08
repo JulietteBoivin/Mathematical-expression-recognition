@@ -2,7 +2,7 @@ from DataFormatting import GetDataLists
 from GTVectorization import padding
 from Model.Model import OurModel
 
-
+ 
 [(X_train, y_train), (X_valid, y_valid), (X_test, y_test)] = GetDataLists()
 
 model = OurModel()
