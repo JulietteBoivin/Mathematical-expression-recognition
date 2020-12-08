@@ -1,5 +1,6 @@
 from os import walk
 import matplotlib.image as mpimg
+from Distorsion import distorted_dataset
  
 repImgTrain = '/content/drive/My Drive/Train/ORNELA_train_img_resized'
 repImgValid = '/content/drive/My Drive/Train/valid_img_resized'
@@ -18,11 +19,11 @@ def ListOfImg(rep):
   for i in range (len(ImgNames)):
     ImgList.append(mpimg.imread(ImgNames[i])) 
     
-  return ImgList
+  return ImgList, ImgNames
   
-X_train = ListOfImg(repImgTrain)
-X_valid = ListOfImg(repImgValid)
-X_test = ListOfImg(repImgTest)
+X_train, Xtrain = ListOfImg(repImgTrain)
+X_valid, Xvalid = ListOfImg(repImgValid)
+X_test, Xtest = ListOfImg(repImgTest)
 
   
 repTxtTrain = '/content/drive/My Drive/Train/train_txt'
@@ -61,6 +62,11 @@ def RemoveBlankElements(X, y):
       del X[i]
     else:
       i += 1
+
+#Get augmented dataset
+#X_train, Xtrain, y_train = distorted_dataset(X_train ,Xtrain ,y_train)
+#X_valid, Xvalid, y_valid = distorted_dataset(X_valid ,Xvalid ,y_valid)
+#X_test, Xtest, y_test = distorted_dataset(X_test ,Xtest ,y_test )
       
 RemoveBlankElements(X_train, y_train)
 RemoveBlankElements(X_valid, y_valid)
