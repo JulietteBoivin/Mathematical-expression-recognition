@@ -1,5 +1,7 @@
 # Mathematical-expression-recognition
 
+Project developed by Nanushi Ornela & Boivin Juliette
+
 1.Training an End-to-End System for Handwritten Mathematical Expressions
 
 In this project we tried to reproduce the model proposed by Anh Duc Le and Masaki Nakagawa, Department of Computer Information Tokyo University of Agriculture and Technology in their article “Training an End-to-End System for Handwritten Mathematical Expressions”.
